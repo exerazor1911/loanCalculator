@@ -14,7 +14,9 @@
       "Apellido" : "",
       "E-mail" : ""
    }
-
+$(document).ready(function(){
    $('#boton').click(function(){
       mostrarCliente()
+      mostrarDatosBcra()
    })
+});

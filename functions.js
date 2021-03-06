@@ -67,4 +67,22 @@ function mostrarCliente () {
     localStorage.setItem('datosCliente', userString);   
 }
      
+   function mostrarDatosBcra () {
+      $.ajax ({
+         url: 'https://api.estadisticasbcra.com',
+         type: 'GET',
+         dataType: 'json' ,
+         beforeSend: function (xhr) {
+            xhr.setRequestHeader('Authorization', 'BEARER eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDY1OTYzNjAsInR5cGUiOiJleHRlcm5hbCIsInVzZXIiOiJleGVfY2llbkBob3RtYWlsLmNvbSJ9.v66Gl3ng8Wjogvfc_jojS96MBvTxq99PXK7opRaduortbcZ2WVPyJ-S3_a3q5ryvBeLoE5DlrSXlVX88cq08kA' )
+         }
+      })
+      .done(function(result) {
+         console.log(result)
+      })
+      .fail(function (xhr,status,error) {
+         console.log(xhr)
+         console.log(status)
+         console.log(error)
+      })
+   }
 

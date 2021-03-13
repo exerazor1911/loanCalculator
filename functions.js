@@ -71,7 +71,7 @@ function mostrarCliente () {
       $.ajax ({
          url: 'https://api.estadisticasbcra.com',
          Header : {
-            'Authorization': 'BEARER eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDcxODYxMzksInR5cGUiOiJleHRlcm5hbCIsInVzZXIiOiJleGVfY2llbkBob3RtYWlsLmNvbSJ9.k8vIGikLc8YAQKxAQmGsIhMTz-evIH7qu3Miq6HouRCCXiS-rHmKpAyzijGDlmGq_wBNdgmh2H9gPPv4nykp3g' 
+            Authorization: 'BEARER eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDcxODYxMzksInR5cGUiOiJleHRlcm5hbCIsInVzZXIiOiJleGVfY2llbkBob3RtYWlsLmNvbSJ9.k8vIGikLc8YAQKxAQmGsIhMTz-evIH7qu3Miq6HouRCCXiS-rHmKpAyzijGDlmGq_wBNdgmh2H9gPPv4nykp3g' 
          },
          type: 'GET',
          dataType: 'json' ,

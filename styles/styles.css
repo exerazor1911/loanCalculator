@@ -98,6 +98,11 @@ body {
     display: none;
 }
 
+#cargando img {
+    width: 100%;
+    height: 200px;
+}
+
 #resultado {
     display: block;
 }
@@ -160,3 +165,37 @@ body {
         display: none;
     }
 }
+
+.up {
+    position: absolute;
+    width: 5rem;
+    height: 5rem;
+    background-color: #e62739;
+    top: -2.5rem;
+    right: 5rem;
+    border-radius: 100%;
+    display: flex;
+    animation: pulse 2s infinite;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    outline: none;
+    border: none;
+}
+
+.up i {
+    color: #16162d;
+    font-size: 2rem;
+    margin: auto;
+    top: 25px;
+    right: 25px;
+    position: inherit;
+
+}
+
+.up-container {
+    position: relative;
+    text-align: center;
+    padding: 2rem 0;
+    width: 100%;
+}
+

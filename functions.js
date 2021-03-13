@@ -70,11 +70,12 @@ function mostrarCliente () {
    function mostrarDatosBcra () {
       $.ajax ({
          url: 'https://api.estadisticasbcra.com',
+         Header : {
+            'Authorization': 'BEARER eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDcxODYxMzksInR5cGUiOiJleHRlcm5hbCIsInVzZXIiOiJleGVfY2llbkBob3RtYWlsLmNvbSJ9.k8vIGikLc8YAQKxAQmGsIhMTz-evIH7qu3Miq6HouRCCXiS-rHmKpAyzijGDlmGq_wBNdgmh2H9gPPv4nykp3g' 
+         },
          type: 'GET',
          dataType: 'json' ,
-         beforeSend: function (xhr) {
-            xhr.setRequestHeader('Authorization', 'BEARER eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDY1OTYzNjAsInR5cGUiOiJleHRlcm5hbCIsInVzZXIiOiJleGVfY2llbkBob3RtYWlsLmNvbSJ9.v66Gl3ng8Wjogvfc_jojS96MBvTxq99PXK7opRaduortbcZ2WVPyJ-S3_a3q5ryvBeLoE5DlrSXlVX88cq08kA' )
-         }
+         
       })
       .done(function(result) {
          console.log(result)

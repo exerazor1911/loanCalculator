@@ -18,11 +18,11 @@
             <img src="https://image.shutterstock.com/image-vector/money-logo-vector-260nw-395613193.jpg" alt="imagen-seguro" class="image-header">
         </div>
         <div class="header-title">
-            <h1 class="h1-title">Prestamos en el acto!!!</h1>
+            <h1 class="h1-title">Calcule su ingreso mensual en USD!!!</h1>
         </div>
         <div class="header-contact">
             <i class="fas fa-phone-square-alt"></i>
-            <span class="header-span">0800 666 5366</span>
+            <span class="header-span">Compre Dolares: 0800 666 5366</span>
         </div>
         </div>
     </header>
@@ -34,8 +34,8 @@
         <div class="collapse navbar-collapse" id="navbar-content">
         <ul class="navbar-nav m-auto">
             <li class="nav-item active"><a class="nav-link text-success m-3" href="#inicio">Inicio</a></li>
-            <li class="nav-item"><a class="nav-link text-success m-3" href="#tuPrestamo">Solicita tu prestamo</a></li>
-            <li class="nav-item"><a class="nav-link text-success m-3" href="#porQue">Por que Lorem prestamos</a></li>
+            <li class="nav-item"><a class="nav-link text-success m-3" href="#tuPrestamo">Compare su sueldo en USD</a></li>
+            <li class="nav-item"><a class="nav-link text-success m-3" href="#porQue">Por que utilizar Lorem</a></li>
         </ul>
         </div>
     </nav>
@@ -45,7 +45,7 @@
             <div class="row">
                 <div class="col-md-6 mx-auto calculate-form">
                     <div class="card card-body text-center mb-5 mt-5">
-                        <h1 class="heading display-5 pb-3">Calcule su prestamo</h1>
+                        <h1 class="heading display-5 pb-3">Calcule su ingreso en USD</h1>
                         <form id="calculadora">
                             <div class="form-group">
                                 <div class="input-group">
@@ -64,22 +64,22 @@
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
-                                    <input type="number" class="form-control" id="monto" placeholder="Ingrese el monto de su prestamo">
+                                    <input type="number" class="form-control" id="monto" placeholder="Ingrese el monto de su sueldo en pesos"> 
                                 </div>
                             </div>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg">
+                                <option selected>Elija el tipo de dolar a usar de referencia</option>
+                                <option value="1">Dolar Oficial</option>
+                                <option value="2">Dolar Blue</option>
+                                <option value="3">Dolar Soja</option>
+                                <option value="1">Dolar Contado con Liqui</option>
+                                <option value="2">Dolar Bolsa</option>
+                                <option value="3">Dolar Bitcoin</option>
+                                <option value="3">Dolar Turista</option>
+                              </select>
                             <div class="form-group">
                                 <div class="input-group">
-                                    <input type="number" class="form-control" id="interes" placeholder="Ingrese el interes al que esta dispuesto a pagar">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <input type="number" class="form-control" id="anios" placeholder="Ingrese los años a pagar">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <input type="button" class="btn btn-dark btn-block button btnsecondary pagescroll" id="boton" value="Calcule su prestamo">
+                                    <input type="button" class="btn btn-dark btn-block button btnsecondary pagescroll" id="boton" value="Calcule su sueldo en USD">
                                 </div>
                             </div>
                         </form>
@@ -87,32 +87,31 @@
                             <img src="https://media.tenor.com/images/8e284a7d005fd9d902a41fea55470771/tenor.gif" alt="calculandoGif">
                         </div>
                         <div id="resultado">
-                            <h5>Este es el resultado de tu prestamo</h5>
+                            <h5>Ya puede largarse a llorar</h5>
                             <div class="form-group">
                                 <div class="input-group">
                                     <div class="input-group-prepend"> 
-                                        <span class="input-group-text">Pago mensual</span>
+                                        <span class="input-group-text">Su sueldo mensual en pesos</span>
                                     </div>
-                                    <input type="number" class="form-control" id="pago-mensual" disabled>
+                                    <input type="number" class="form-control" id="sueldo-pesos" disabled>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
                                     <div class="input-group-prepend"> 
-                                        <span class="input-group-text">Total a pagar</span>
+                                        <span class="input-group-text">Opcion de dolar seleccionada</span>
                                     </div>
-                                    <input type="number" class="form-control" id="pago-total" disabled>
+                                    <input type="number" class="form-control" id="dolar-seleccion" disabled>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
                                     <div class="input-group-prepend"> 
-                                        <span class="input-group-text">Total de intereses</span>
+                                        <span class="input-group-text">Su sueldo en USD</span>
                                     </div>
-                                    <input type="number" class="form-control" id="total-intereses" disabled>
+                                    <input type="number" class="form-control" id="sueldo-usd" disabled>
                                 </div>
                             </div>
-                            <button id="BotonDePrestamo" class="button btnsecondary pagescroll" data-toggle="modal" data-target="#myModal" onclick="botonDePrestamo()"> ¡CLICKEAME Y OBTENÉ TU PRÉSTAMO! </button>
                         </div>
                     </div> 
                 </div>
@@ -130,27 +129,27 @@
     <section id="porQue">
         <div class="container mt-5 mb-2">
             <div class="row">
-                <h1 class="porQueLoremTitulo">Por que elegir Lorem Prestamos?</h1>
+                <h1 class="porQueLoremTitulo">Por que utilizar calculador Lorem?</h1>
                 <div class="col-md-12 col-sm-12"><i class="fa fa-clock fa-3x"></i>
                     <h3 class="porQueLoremh3">
                     Porque somos rapidos
                     </h2>
                     <p class="porQueLoremParrafo">
-                        Consegui tu prestamo al instante, sin vueltas y sin letra chica. 
+                        Queremos ser lo mas efectivos posibles en demostrarte porque debes escapar de Argentina, y si es posible de Latinoamerica.
                     </p></div>
                 <div class="col-md-12 col-sm-12"><i class="fa fa-shield fa-3x"></i>
                     <h3 class="porQueLoremh3">
                         Porque somos seguros
                     </h2>
                     <p class="porQueLoremParrafo">
-                        Somos una empresa lider en prestamos con los intereses mas bajos de la region, poseemos la confianza de miles de solicitantes de prestamos a los cuales nunca hemos ni tenemos pensado defraudar. 
+                        Somos una empresa que respeta la privacidad y no vamos a mostrarle tus migajas a nadie mas que a ti. 
                     </p></div>
                 <div class="col-md-12 col-sm-12"><i class="fa fa-bolt fa-3x"></i>
                     <h3 class="porQueLoremh3">
                         Porque somos eficientes
                     </h2>
                     <p class="porQueLoremParrafo">
-                        Las referencias hablan por si solas, somos la empresa lider en prestamos en la Republica Argentina. 
+                        Las referencias hablan por si solas, somos la empresa lider en calcular tu infortunia. 
                     </p></div>
             </div>
         </div>
@@ -167,7 +166,7 @@
                         <li><a href="#"><i class="m-5 h3 fa fa-linkedin"></i></a></li>
                         </div>
                     </ul> 
-                    <p class="copyrights wow fadeInUp" data-wow-delay="400ms"> © Copyright 2021  Prestamos Lorem | Todos los derechos reservados | Calle falsa 123, Buenos Aires, Argentina. </p>
+                    <p class="copyrights wow fadeInUp" data-wow-delay="400ms"> © Copyright 2021 Lorem | Todos los derechos reservados | Calle falsa 123, Buenos Aires, Argentina. </p>
                 </div>
             </div>
         </div>
@@ -182,7 +181,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="objects.js" type="text/javascript"></script>
-    <script src="functions.js" type="text/javascript"></script>
     <script src="script.js" type="text/javascript"></script>
+    <script src="functions.js" type="text/javascript"></script>
+    
 </body>
 </html>

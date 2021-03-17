@@ -1,5 +1,5 @@
 
-   let usuariosRegistrados = ['LUCAS', 'EZEQUIEL', 'JUAN', 'MANUEL', 'RAMIRO']
+   let usuariosRegistrados = []
 
    let usuarioIngresado = []
 
@@ -14,13 +14,14 @@
       "Apellido" : "",
       "E-mail" : ""
    }
+
 $(document).ready(function(){
    $('.h1-title').slideDown(3000)
    $('#boton').click(function(){
       $('#cargando').fadeIn( 3000, function() { $('#cargando').fadeOut(3000)
    });
-      mostrarCliente()
-      mostrarDatosBcra()
+      calcularSueldo()
+      mostrarDolar()
    })
 });
 

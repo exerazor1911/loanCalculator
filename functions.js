@@ -1,5 +1,5 @@
-
-function mostrarCliente () {
+// CALCULAR SUELDO
+function calcularSueldo () {
 
     nombre = $('#nombre').val().toUpperCase()
     apellido = $('#apellido').val().toUpperCase()
@@ -9,21 +9,54 @@ function mostrarCliente () {
     console.log(apellido)
     console.log(mail)
 
+    clientData = {
+      "nombre" : nombre,
+      "apellido" : apellido,
+      "mail" : mail
+      }
+      //NOMBRES
+      const sessionStorageContenido = sessionStorage.getItem('nombresCliente')
+      let nombres;
+      if (sessionStorageContenido === null) {
+         nombres = [];
+      } else {
+            nombres = JSON.parse(sessionStorageContenido)
+         }
+         nombres.push(clientData.nombre);
+         const nombresSinDuplicado = [...new Set(nombres)]
+         sessionStorage.setItem('nombresCliente', JSON.stringify(nombresSinDuplicado))
+      //APELLIDOS
+      const sessionStorageContenido2 = sessionStorage.getItem('apellidosCliente')
+      let apellidos;
+      if (sessionStorageContenido2 === null) {
+      apellidos = [];
+      } else {
+      apellidos = JSON.parse(sessionStorageContenido2)
+         }
+      apellidos.push(clientData.apellido);
+      const apellidosSinDuplicado = [...new Set(apellidos)]
+      sessionStorage.setItem('apellidosCliente', JSON.stringify(apellidosSinDuplicado))
+      //MAILS
+      const sessionStorageContenido3 = sessionStorage.getItem('mailsCliente')
+      let mails;
+      if (sessionStorageContenido3 === null) {
+      mails = [];
+      } else {
+      mails = JSON.parse(sessionStorageContenido3)
+         }
+      mails.push(clientData.mail);
+      console.log(mails)
+      const mailsSinDuplicado = [...new Set(mails)]
+      sessionStorage.setItem('mailsCliente', JSON.stringify(mailsSinDuplicado))
 
-     for (let i = 0; i <= usuariosRegistrados.length; i++) {
-
-        if (nombre == usuariosRegistrados[i]) {
-
-           usuarioIngresado.push(nombre)
-
-        }
-  }
-  if (usuarioIngresado.length == 1) {
-    
+      let content = document.createTextNode('')
+      
+      if (nombresSinDuplicado.length == 1 && nombresSinDuplicado != "") { 
+   for (i=0 ; i < nombresSinDuplicado.length ; i++) {
 
      let myParagraph = $('<p></p>')
 
-     let content = document.createTextNode("Bienvenido señor/a: " + nombre + " " + apellido + ", su correo electronico es: " + mail + ".")
+     content.nodeValue="Bienvenido señor/a: " + nombresSinDuplicado[i] + " " + apellidosSinDuplicado[i] + ", su correo electronico es: " + mailsSinDuplicado[i] + "."
 
      myParagraph.append(content)
 
@@ -34,17 +67,35 @@ function mostrarCliente () {
      myParagraph.css({
       'color' : '#28a745',
       'text-align' : 'center',
-   });
-
+     
+    });
     
-
+   }
      
 
-  } else if  (usuarioIngresado.length == 0) {
+  } else if (nombresSinDuplicado.length > 1) { 
+
+   let myParagraph = $('<p></p>')
+
+     content.nodeValue="No puede ingresar 2 usuarios en una misma sesion, refresque la pagina e ingrese nuevamente"
+
+   myParagraph.append(content)
+
+   $('#resultadoPrestamo').append(myParagraph)
+
+   console.log(content.text)
+
+   myParagraph.css({
+      'color' : '#f0ab0c',
+      'text-align' : 'center',
+   });
+   
+  }
+     else  {
 
      let myParagraph = $('<p></p>')
 
-     let content = document.createTextNode("Usted no es un usuario registrado")
+     content.nodeValue="Debe ingresar su usuario"
 
      myParagraph.append(content)
 
@@ -56,23 +107,18 @@ function mostrarCliente () {
       'color' : 'red',
       'text-align' : 'center',
    });
-
   }
-  clientData = {
-    "Nombre" : nombre,
-    "Apellido" : apellido,
-    "E-mail" : mail
-    }
-    let userString = JSON.stringify(clientData);
-    localStorage.setItem('datosCliente', userString);   
+  // Mostrar sueldo $ARG
+  let sueldoPesos = $('#monto').val()
+  $('#sueldo-pesos').val(sueldoPesos)
+
+  // Display de texto que te hara largar una lagrima
+  $('#resultado h5').css('display', 'block')
 }
-     
-   function mostrarDatosBcra () {
+  // MOSTRAR DOLAR   
+   function mostrarDolar () {
       $.ajax ({
-         url: 'https://api.estadisticasbcra.com',
-         Header : {
-            Authorization: 'BEARER eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDcxODYxMzksInR5cGUiOiJleHRlcm5hbCIsInVzZXIiOiJleGVfY2llbkBob3RtYWlsLmNvbSJ9.k8vIGikLc8YAQKxAQmGsIhMTz-evIH7qu3Miq6HouRCCXiS-rHmKpAyzijGDlmGq_wBNdgmh2H9gPPv4nykp3g' 
-         },
+         url: 'https://www.dolarsi.com/api/api.php?type=valoresprincipales',
          type: 'GET',
          dataType: 'json' ,
          
@@ -86,4 +132,3 @@ function mostrarCliente () {
          console.log(error)
       })
    }
-

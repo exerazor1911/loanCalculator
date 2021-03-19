@@ -5,10 +5,6 @@ function calcularSueldo () {
     apellido = $('#apellido').val().toUpperCase()
     mail = $('#mail').val().toUpperCase()
 
-    console.log(nombre)
-    console.log(apellido)
-    console.log(mail)
-
     clientData = {
       "nombre" : nombre,
       "apellido" : apellido,
@@ -45,34 +41,29 @@ function calcularSueldo () {
       mails = JSON.parse(sessionStorageContenido3)
          }
       mails.push(clientData.mail);
-      console.log(mails)
       const mailsSinDuplicado = [...new Set(mails)]
       sessionStorage.setItem('mailsCliente', JSON.stringify(mailsSinDuplicado))
-
+      // Creamos parrafo que se muestra al ingresar datos   
       let content = document.createTextNode('')
       
       if (nombresSinDuplicado.length == 1 && nombresSinDuplicado != "") { 
-   for (i=0 ; i < nombresSinDuplicado.length ; i++) {
+         for (i=0 ; i < nombresSinDuplicado.length ; i++) {
 
-     let myParagraph = $('<p></p>')
+            let myParagraph = $('<p></p>')
 
-     content.nodeValue="Bienvenido señor/a: " + nombresSinDuplicado[i] + " " + apellidosSinDuplicado[i] + ", su correo electronico es: " + mailsSinDuplicado[i] + "."
+            content.nodeValue="Bienvenido señor/a: " + nombresSinDuplicado[i] + " " + apellidosSinDuplicado[i] + ", su correo electronico es: " + mailsSinDuplicado[i] + "."
 
-     myParagraph.append(content)
+            myParagraph.append(content)
 
-     $('#resultadoPrestamo').append(myParagraph)
-
-     console.log(content.text)
-
-     myParagraph.css({
-      'color' : '#28a745',
-      'text-align' : 'center',
-     
-    });
+            $('#resultadoPrestamo').append(myParagraph)
+            myParagraph.css({
+               'color' : '#28a745',
+               'text-align' : 'center',
+            
+            });
     
    }
      
-
   } else if (nombresSinDuplicado.length > 1) { 
 
    let myParagraph = $('<p></p>')
@@ -82,8 +73,6 @@ function calcularSueldo () {
    myParagraph.append(content)
 
    $('#resultadoPrestamo').append(myParagraph)
-
-   console.log(content.text)
 
    myParagraph.css({
       'color' : '#f0ab0c',
@@ -101,34 +90,79 @@ function calcularSueldo () {
 
      $('#resultadoPrestamo').append(myParagraph)
 
-     console.log(content.text)
-
      myParagraph.css({
       'color' : 'red',
       'text-align' : 'center',
    });
   }
   // Mostrar sueldo $ARG
-  let sueldoPesos = $('#monto').val()
+   sueldoPesos = $('#monto').val()
   $('#sueldo-pesos').val(sueldoPesos)
 
+  //Switch de casos que mostrara el tipo de dolar seleccionado
+   dolarSeleccionado = parseInt($('#select-list').val())
+  switch (dolarSeleccionado) {
+     case 1:
+        $('#dolar-seleccion').val("Dolar Oficial")
+        $('#sueldo-usd').val()
+        break;
+
+      case 2:
+         $('#dolar-seleccion').val("Dolar Blue")
+         $('#sueldo-usd').val()
+        break;
+
+      case 3:
+         $('#dolar-seleccion').val("Dolar Soja")
+         $('#sueldo-usd').val()
+        break;
+
+      case 4:
+         $('#dolar-seleccion').val("Dolar Contaddo con Liqui")
+         $('#sueldo-usd').val()
+        break;
+
+      case 5:
+         $('#dolar-seleccion').val("Dolar Bolsa")
+         $('#sueldo-usd').val()
+        break;
+
+      case 6:
+         $('#dolar-seleccion').val("Dolar Bitcoin")
+         $('#sueldo-usd').val()
+        break;
+
+      case 7:
+         $('#dolar-seleccion').val("Dolar Turista")
+         $('#sueldo-usd').val()
+         break;
+  
+     default:
+        $('#dolar-seleccion').val("Debe Seleccionar un Dolar")
+        $('#sueldo-usd').val()
+        break;
+  }
+
   // Display de texto que te hara largar una lagrima
-  $('#resultado h5').css('display', 'block')
+  $('#resultado').css('display', 'block')
 }
   // MOSTRAR DOLAR   
    function mostrarDolar () {
+      var data
       $.ajax ({
          url: 'https://www.dolarsi.com/api/api.php?type=valoresprincipales',
          type: 'GET',
          dataType: 'json' ,
+          async: false,
          
       })
       .done(function(result) {
-         console.log(result)
+          data = result
       })
       .fail(function (xhr,status,error) {
          console.log(xhr)
          console.log(status)
          console.log(error)
       })
+      return data
    }

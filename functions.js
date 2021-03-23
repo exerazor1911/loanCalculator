@@ -47,9 +47,13 @@ function calcularSueldo () {
       let content = document.createTextNode('')
       
       if (nombresSinDuplicado.length == 1 && nombresSinDuplicado != "") { 
-         for (i=0 ; i < nombresSinDuplicado.length ; i++) {
+         for (i = 0 ; i < nombresSinDuplicado.length ; i++) {
+            
+            content.nodeValue = ""
+            
+            let myParagraph = ""
 
-            let myParagraph = $('<p></p>')
+             myParagraph = $('<p></p>')
 
             content.nodeValue="Bienvenido señor/a: " + nombresSinDuplicado[i] + " " + apellidosSinDuplicado[i] + ", su correo electronico es: " + mailsSinDuplicado[i] + "."
 
@@ -65,8 +69,13 @@ function calcularSueldo () {
    }
      
   } else if (nombresSinDuplicado.length > 1) { 
+   
+   
+   let myParagraph = ""
 
-   let myParagraph = $('<p></p>')
+   content.nodeValue = ""
+
+    myParagraph = $('<p></p>')
 
      content.nodeValue="No puede ingresar 2 usuarios en una misma sesion, refresque la pagina e ingrese nuevamente"
 
@@ -82,7 +91,13 @@ function calcularSueldo () {
   }
      else  {
 
-     let myParagraph = $('<p></p>')
+      
+
+      content.nodeValue = ""
+
+      let myParagraph = ""
+
+      myParagraph = $('<p></p>')
 
      content.nodeValue="Debe ingresar su usuario"
 
@@ -165,4 +180,10 @@ function calcularSueldo () {
          console.log(error)
       })
       return data
+   }
+
+   window.onunload = function () {
+      sessionStorage.removeItem('nombresCliente');
+      sessionStorage.removeItem('apellidosCliente');
+      sessionStorage.removeItem('mailsCliente');
    }

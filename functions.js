@@ -63,9 +63,9 @@ function calcularSueldo () {
             myParagraph.css({
                'color' : '#28a745',
                'text-align' : 'center',
+            }
+            );
             
-            });
-    
    }
      
   } else if (nombresSinDuplicado.length > 1) { 
@@ -91,7 +91,7 @@ function calcularSueldo () {
   }
      else  {
 
-      
+     
 
       content.nodeValue = ""
 
@@ -99,7 +99,7 @@ function calcularSueldo () {
 
       myParagraph = $('<p></p>')
 
-     content.nodeValue="Debe ingresar su usuario"
+     content.nodeValue="Debe ingresar su usuario. Refresque la pagina e ingrese nuevamente"
 
      myParagraph.append(content)
 
@@ -109,6 +109,7 @@ function calcularSueldo () {
       'color' : 'red',
       'text-align' : 'center',
    });
+   
   }
   // Mostrar sueldo $ARG
    sueldoPesos = $('#monto').val()

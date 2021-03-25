@@ -20,12 +20,12 @@
    let montoDolar
    let montoDolarSeleccion
    let sueldoEnDolares
-  
+   
    $('.h1-title').slideDown(3000)
    $('#boton').click(function(){
       $('#cargando').fadeIn( 3000, function() { $('#cargando').fadeOut(3000)
    });
-      
+      // eliminarNodo() 
       mostrarDolar()
       calcularSueldo()
       montoDolar = mostrarDolar()

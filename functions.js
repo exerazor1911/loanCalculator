@@ -188,3 +188,10 @@ function calcularSueldo () {
       sessionStorage.removeItem('apellidosCliente');
       sessionStorage.removeItem('mailsCliente');
    }
+
+   
+   const eliminarNodo = () => {
+    if ($('resultadoPrestamo').firstchild == myParagraph) {
+        $('resultadoPrestamo').removechild(myParagraph)
+    }
+}
